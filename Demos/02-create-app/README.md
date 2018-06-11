@@ -80,7 +80,7 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
     1. Set the endpoint to **https://graph.microsoft.com/v1.0/me**
     1. Select the **Headers** tab
     1. Add a new header:
-        * **Vey**: Authorization
+        * **Key**: Authorization
         * **Value**: Bearer {{REPLACE_WITH_ACCESS_TOKEN}}
     1. Select **Send** to execute the request
 
