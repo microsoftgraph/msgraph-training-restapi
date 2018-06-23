@@ -1,8 +1,8 @@
-# Microsoft Graph Training Module - Building Apps with the Microsoft Graph REST API
+# Microsoft Graph Training Module - Build apps with the Microsoft Graph REST API
 
 This module will introduce you to working with the Microsoft Graph REST API to access data in Office 365.
 
-## Lab - Building Apps with the Microsoft Graph REST API
+## Lab - Build apps with the Microsoft Graph REST API
 
 In this lab you will leverage the Microsoft Graph REST API to create an ASP.NET MVC application using the Azure AD v2 authentication endpoint and the Microsoft Authentication Library (MSAL) to access data in Office 365. You will also learn how to perform manual authentication with Azure AD and call the Microsoft Graph REST API endpoint using raw HTTP calls.
 
