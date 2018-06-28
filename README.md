@@ -15,6 +15,10 @@ In this lab you will leverage the Microsoft Graph REST API to create an ASP.NET 
 * [Create & Configure an ASP.NET MVC Web Application & Configure it for MSAL](./Demos/03-create-aspnet-mvcapp)
 * [Update the ASP.NET MVC Application to Leverage the Microsoft Graph REST API](./Demos/04-leverage-msgraphsdk)
 
+## Watch the Module
+
+This module has been recorded and is available in the Office Development YouTube channel: [Build apps with the Microsoft Graph REST API](https://youtu.be/GF4JSTeR6VA)
+
 ## Contributors
 
 |        Roles         |                        Author(s)                        |
@@ -26,6 +30,7 @@ In this lab you will leverage the Microsoft Graph REST API to create an ASP.NET 
 
 | Version |        Date        |                    Comments                    |
 | ------- | ------------------ | ---------------------------------------------- |
+| 1.2     | June 28, 2018      | Added screencast.                              |
 | 1.1     | June 22, 2018      | Rewritten to use latest guidance.              |
 | 1.0     | ~November 24, 2017 | Add Microsoft Graph related product breakouts. |
 
