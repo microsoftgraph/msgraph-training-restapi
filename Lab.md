@@ -4,10 +4,10 @@ In this lab you will leverage the Microsoft Graph REST API to create an ASP.NET 
 
 ## In this lab
 
-* [Create an Azure AD web application with the App Registration Portal](#exercise1)
-* [Working with the Microsoft Graph REST API in Postman](#exercise2)
-* [Create & Configure an ASP.NET MVC Web Application & Configure it for MSAL](#exercise3)
-* [Update the ASP.NET MVC Application to Leverage the Microsoft Graph REST API](#exercise4)
+* [Exercise 1: Create an Azure AD web application with the App Registration Portal](#exercise-1-create-an-azure-ad-web-application-with-the-app-registration-portal)
+* [Exercise 2: Working with the Microsoft Graph REST API in Postman](#exercise-2-working-with-the-microsoft-graph-rest-api-in-postman)
+* [Exercise 3: Create & Configure an ASP.NET MVC Web Application & Configure it for MSAL](#exercise-3-create--configure-an-aspnet-mvc-web-application--configure-it-for-msal)
+* [Exercise 4: Update the ASP.NET MVC Application to Leverage the Microsoft Graph REST API](#exercise-4-update-the-aspnet-mvc-application-to-leverage-the-microsoft-graph-rest-api)
 
 ## Prerequisites
 
@@ -17,8 +17,6 @@ To complete this lab, you need the following:
   * If you do not have one, you obtain one (for free) by signing up to the [Office 365 Developer Program](https://developer.microsoft.com/en-us/office/dev-program).
 * [Visual Studio 2017](https://www.visualstudio.com/vs)
 * [Postman](https://www.getpostman.com/) - *only the free version is needed for this lab*
-
-<a name="exercise1"></a>
 
 ## Exercise 1: Create an Azure AD web application with the App Registration Portal
 
@@ -65,8 +63,6 @@ In this exercise, you will create a new Azure AD native application using the Ap
       ![Screenshot of the newly added Calendars.Read permission](./Images/arp-add-permission-03.png)
 
 1. Scroll to the bottom of the page and select **Save**.
-
-<a name="exercise2"></a>
 
 ## Exercise 2: Working with the Microsoft Graph REST API in Postman
 
@@ -132,7 +128,7 @@ Use the authorization code to request an OAuth2 access token from Azure AD that 
         ![Screenshot of the Postman with the access token request](./Images/postman-accesstoken-01.png)
 
     1. Select **Send** to execute the request.
-    1. The request's response is displayed in the lower half of the Postman application. The response contains the 
+    1. The request's response is displayed in the lower half of the Postman application. The response contains the
         1. **scopes** - the access token has permissions to request
         1. **access_token** - a JWT token used to authenticate with the Microsoft Graph REST API
         1. **id_token** - a JWT token that contains details about the user who logged in
@@ -145,7 +141,7 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
 
       ![Screenshot of the Postman creating a new tab](./Images/postman-graph-01.png)
 
-1. Verify the access token obtained in the previous steps works by requesting your own details from the Microsoft Graph REST API:
+1. Verify the access token (id_token) obtained in the previous steps works by requesting your own details from the Microsoft Graph REST API:
     1. Set the request type to **GET**
     1. Set the endpoint to **https://graph.microsoft.com/v1.0/me**
     1. Select the **Headers** tab
@@ -163,10 +159,9 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
         * **$select**: subject,start,end
         * **$top**: 20
         * **$skip**: 0
+    1. Select **Send** to execute the request
 
       ![Screenshot of Postman request and response from the Microsoft Graph REST API](./Images/postman-graph-02.png)
-
-<a name="exercise3"></a>
 
 ## Exercise 3: Create & Configure an ASP.NET MVC Web Application & Configure it for MSAL
 
@@ -215,9 +210,9 @@ In this exercise you will create a new ASP.NET MVC web application. After creati
 
     1. Go back to Visual Studio where the project is open.
     1. Open the **web.config** file.
-    1. Add the following application settings to the `<appSettings>` XML element. You will update the `ida:AppId` & `ida:AppSecret` properties later. 
+    1. Add the following application settings to the `<appSettings>` XML element. You will update the `ida:AppId` & `ida:AppSecret` properties later.
 
-        Set the value of `ida:RedierctUri` to the value of the **SSL URL** you copied from a previous step.
+        Set the value of `ida:RedirectUri` to the value of the **SSL URL** you copied from a previous step.
 
           ```xml
           <add key="ida:AppId" value="ENTER_YOUR_APPLICATION_ID" />
@@ -232,7 +227,7 @@ In this exercise you will create a new ASP.NET MVC web application. After creati
     1. In the **Package Manager Console** tool window, run the following commands to install the necessary packages for MSAL & the OWIN middleware:
 
         ```powershell
-        Install-Package Microsoft.Identity.Client -Pre
+        Install-Package Microsoft.Identity.Client -Version 1.1.4-preview0002
         Install-Package Microsoft.IdentityModel.Tokens
         Install-Package Microsoft.Owin
         Install-Package Microsoft.Owin.Host.SystemWeb
@@ -240,6 +235,7 @@ In this exercise you will create a new ASP.NET MVC web application. After creati
         Install-Package Microsoft.Owin.Security.OpenIdConnect
         Install-Package System.IdentityModel.Tokens.Jwt
         ```
+>Note: Do not update bootstrap package past 3.3.7. The default home page and navigation built into the MVC template does not support it.
 
 1. Add authentication startup and configuration classes for MSAL & OWIN middleware:
 
@@ -259,7 +255,7 @@ In this exercise you will create a new ASP.NET MVC web application. After creati
     1. Add an MVC controller that will handle the login and logout process for the application as well as a partial view that contains the login/logout controls.
         1. Copy the [LabFiles/AccountController.cs](./LabFiles/AccountController.cs) file to the **Controllers** folder in the project.
         1. Copy the [LabFiles/_LoginPartial.cshtml](./LabFiles/_LoginPartial.cshtml) file to the **Views/Shared** folder in the project.
-    1. Open the **Views\Shared\_Layout.cshtml** file.
+    1. Open the **Views/Shared/_Layout.cshtml** file.
     1. Locate the part of the file that includes a few links at the top of the page. It looks similar to the following markup:
 
         ```html
@@ -276,18 +272,16 @@ In this exercise you will create a new ASP.NET MVC web application. After creati
         @Html.Partial("_LoginPartial")
         ```
 
-<a name="#exercise4"></a>
-
 ## Exercise 4: Update the ASP.NET MVC Application to Leverage the Microsoft Graph REST API
 
 In this exercise you will update the ASP.NET MVC application created in the last exercise to call the Microsoft Graph REST API.
 
 1. The Microsoft Graph REST API will return data in an OData JSON response format. To simplify working with the data, use JSON.NET to deserialize the response.
-    1. In the **Visual Studio** **Solution Explorer** tool window, right-click the **Models** folder and select **Add > Class**.
     1. Copy the [LabFiles/GraphOdataResponse.cs](./LabFiles/GraphOdataResponse.cs) file to the **Models** folder in the project.
 1. Add a new service that will handle all communication with the Microsoft Graph REST API:
+    1. In the **Visual Studio** **Solution Explorer** tool window, right-click the **Models** folder and select **Add > Class**.
     1. In the **Add Class** dialog, name the class **GraphService** and select **Add**.
-    1. Add the following `using` statements to the existing ones in the **MyEvents.cs** file that was created.
+    1. Add the following `using` statements to the existing ones in the **GraphService.cs** file that was created.
 
         ```cs
         using Newtonsoft.Json;
@@ -339,6 +333,7 @@ In this exercise you will update the ASP.NET MVC application created in the last
         using MSGraphCalendarViewer.Helpers;
         using MSGraphCalendarViewer.Models;
         using System.Net.Http.Headers;
+        using System.Threading.Tasks;
         ```
 
     1. Decorate the controller to allow only authenticated users to use it by adding `[Authorize]` in the line immediately before the controller:
@@ -426,9 +421,9 @@ Test the application:
 1. When the browser loads, select **Signin with Microsoft** and login.
 1. If this is the first time running the application, you will be prompted to consent to the application. Review the consent dialog and select **Accept**. The dialog will look similar to the following dialog:
 
-    ![Screesnhot of Azure AD consent dialog](./Images/aad-consent.png)
+    ![Screenshot of Azure AD consent dialog](./Images/aad-consent.png)
 
 1. When the ASP.NET application loads, select the **Calendar** link in the top navigation.
 1. You should see a list of calendar items from your calendar appear on the page.
 
-    ![Screesnhot of the web application showing calendar events](./Images/calendar-events-01.png)
+    ![Screenshot of the web application showing calendar events](./Images/calendar-events-01.png)

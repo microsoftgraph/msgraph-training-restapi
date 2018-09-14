@@ -3,11 +3,11 @@
 In this demo you will update the ASP.NET MVC application created in the last exercise to call the Microsoft Graph REST API.
 
 1. The Microsoft Graph REST API will return data in an OData JSON response format. To simplify working with the data, use JSON.NET to deserialize the response.
-    1. In the **Visual Studio** **Solution Explorer** tool window, right-click the **Models** folder and select **Add > Class**.
     1. Copy the [LabFiles/GraphOdataResponse.cs](./LabFiles/GraphOdataResponse.cs) file to the **Models** folder in the project.
 1. Add a new service that will handle all communication with the Microsoft Graph REST API:
+    1. In the **Visual Studio** **Solution Explorer** tool window, right-click the **Models** folder and select **Add > Class**.
     1. In the **Add Class** dialog, name the class **GraphService** and select **Add**.
-    1. Add the following `using` statements to the existing ones in the **MyEvents.cs** file that was created.
+    1. Add the following `using` statements to the existing ones in the **GraphService.cs** file that was created.
 
         ```cs
         using Newtonsoft.Json;
@@ -146,9 +146,9 @@ Test the application:
 1. When the browser loads, select **Signin with Microsoft** and login.
 1. If this is the first time running the application, you will be prompted to consent to the application. Review the consent dialog and select **Accept**. The dialog will look similar to the following dialog:
 
-    ![Screesnhot of Azure AD consent dialog](../../Images/aad-consent.png)
+    ![Screenshot of Azure AD consent dialog](../../Images/aad-consent.png)
 
 1. When the ASP.NET application loads, select the **Calendar** link in the top navigation.
 1. You should see a list of calendar items from your calendar appear on the page.
 
-    ![Screesnhot of the web application showing calendar events](../../Images/calendar-events-01.png)
+    ![Screenshot of the web application showing calendar events](../../Images/calendar-events-01.png)
