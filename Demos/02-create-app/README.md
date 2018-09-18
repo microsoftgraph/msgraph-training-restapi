@@ -75,7 +75,7 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
 
       ![Screenshot of the Postman creating a new tab](../../Images/postman-graph-01.png)
 
-1. Verify the access token obtained in the previous steps works by requesting your own details from the Microsoft Graph REST API:
+1. Verify the access token (id_token) obtained in the previous steps works by requesting your own details from the Microsoft Graph REST API:
     1. Set the request type to **GET**
     1. Set the endpoint to **https://graph.microsoft.com/v1.0/me**
     1. Select the **Headers** tab
@@ -93,5 +93,6 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
         * **$select**: subject,start,end
         * **$top**: 20
         * **$skip**: 0
+    1. Select **Send** to execute the request
 
       ![Screenshot of Postman request and response from the Microsoft Graph REST API](../../Images/postman-graph-02.png)

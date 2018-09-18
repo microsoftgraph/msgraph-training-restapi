@@ -47,7 +47,7 @@ In this demo you will create a new ASP.NET MVC web application. After creating i
     1. Open the **web.config** file.
     1. Add the following application settings to the `<appSettings>` XML element. You will update the `ida:AppId` & `ida:AppSecret` properties later. 
 
-        Set the value of `ida:RedierctUri` to the value of the **SSL URL** you copied from a previous step.
+        Set the value of `ida:RedirectUri` to the value of the **SSL URL** you copied from a previous step.
 
           ```xml
           <add key="ida:AppId" value="ENTER_YOUR_APPLICATION_ID" />
@@ -62,7 +62,7 @@ In this demo you will create a new ASP.NET MVC web application. After creating i
     1. In the **Package Manager Console** tool window, run the following commands to install the necessary packages for MSAL & the OWIN middleware:
 
         ```powershell
-        Install-Package Microsoft.Identity.Client -Pre
+        Install-Package Microsoft.Identity.Client -Version 1.1.4-preview0002
         Install-Package Microsoft.IdentityModel.Tokens
         Install-Package Microsoft.Owin
         Install-Package Microsoft.Owin.Host.SystemWeb
@@ -70,6 +70,7 @@ In this demo you will create a new ASP.NET MVC web application. After creating i
         Install-Package Microsoft.Owin.Security.OpenIdConnect
         Install-Package System.IdentityModel.Tokens.Jwt
         ```
+>Note: Do not update bootstrap package past 3.3.7. The default home page and navigation built into the MVC template does not support it.
 
 1. Add authentication startup and configuration classes for MSAL & OWIN middleware:
 
@@ -89,7 +90,7 @@ In this demo you will create a new ASP.NET MVC web application. After creating i
     1. Add an MVC controller that will handle the login and logout process for the application as well as a partial view that contains the login/logout controls.
         1. Copy the [LabFiles/AccountController.cs](./LabFiles/AccountController.cs) file to the **Controllers** folder in the project.
         1. Copy the [LabFiles/_LoginPartial.cshtml](./LabFiles/_LoginPartial.cshtml) file to the **Views/Shared** folder in the project.
-    1. Open the **Views\Shared\_Layout.cshtml** file.
+    1. Open the **Views/Shared/_Layout.cshtml** file.
     1. Locate the part of the file that includes a few links at the top of the page. It looks similar to the following markup:
 
         ```html
