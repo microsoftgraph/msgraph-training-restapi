@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+using System.Configuration;
 using System.IdentityModel.Claims;
 using System.Threading.Tasks;
 using System.Web;
