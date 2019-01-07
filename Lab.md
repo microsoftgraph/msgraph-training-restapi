@@ -46,7 +46,7 @@ In this exercise, you will create a new Azure AD native application using the Ap
 
         ![Screenshot creating a platform for the app](./Images/arp-create-app-04.png)
 
-    1. In the **Web** platform box added by the previous dialog's selection, enter the URL **https://localhost:1234** for the **Redirect URLs**.
+    1. In the **Web** platform box added by the previous dialog's selection, enter the URL `https://localhost:1234` for the **Redirect URLs**.
 
         ![Screenshot of the newly added Web platform for the application](./Images/arp-create-app-05.png)
 
@@ -97,7 +97,7 @@ The first step is to authenticate with Azure AD to establish your identity. Once
 
         ![Screenshot of the Azure AD common consent dialog](./Images/postman-login-02.png)
 
-    1. After accepting the permission consent request, Azure AD will send you the redirect URI specified in the URL you provided. This is the **https://localhost:1234** site, which isn't running so it will show up as a broken page.
+    1. After accepting the permission consent request, Azure AD will send you the redirect URI specified in the URL you provided. This is the `https://localhost:1234` site, which isn't running so it will show up as a broken page.
 
         Look at the URL and locate the **code** querystring value. Copy the entire value of the **code** property in the querystring as you will use that to request an access token from Azure AD's v2 token endpoint.
 
@@ -115,14 +115,14 @@ Use the authorization code to request an OAuth2 access token from Azure AD that 
     1. Open **Postman**.
     1. Use the following image to guide you in setting the correct values:
         * Set the request type to **POST**
-        * Set the URL to **https://login.microsoftonline.com/common/oauth2/v2.0/token**
+        * Set the URL to `https://login.microsoftonline.com/common/oauth2/v2.0/token`
         * Select the **Body** tab
         * Select the radio button option **form-data**
         * Add a header **client_id** and set it's value to the Azure AD application ID copied previously.
         * Add a header **client_secret** and set it's value to the Azure AD application password copied previously.
-        * Add a header **scope** and set it's value to **openid https://graph.microsoft.com/user.read https://graph.microsoft.com/calendars.read**
-        * Add a header **redirect_uri** and set it's value to **https://localhost:1234**
-        * Add a header **grant_type** and set it's value to **authorization_code**
+        * Add a header **scope** and set it's value to `openid https://graph.microsoft.com/user.read https://graph.microsoft.com/calendars.read`
+        * Add a header **redirect_uri** and set it's value to `https://localhost:1234`
+        * Add a header **grant_type** and set it's value to `authorization_code`
         * Add a header **code** and set it's value to the value of the authorization code requested in the last step.
 
         ![Screenshot of the Postman with the access token request](./Images/postman-accesstoken-01.png)
@@ -143,7 +143,7 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
 
 1. Verify the access token (id_token) obtained in the previous steps works by requesting your own details from the Microsoft Graph REST API:
     1. Set the request type to **GET**
-    1. Set the endpoint to **https://graph.microsoft.com/v1.0/me**
+    1. Set the endpoint to `https://graph.microsoft.com/v1.0/me`
     1. Select the **Headers** tab
     1. Add a new header:
         * **Key**: Authorization
@@ -153,7 +153,7 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
       ![Screenshot of Postman request and response from the Microsoft Graph REST API](./Images/postman-graph-02.png)
 
 1. Update the request to obtain a list the top 20 events from your Office 365 calendar:
-    1. In Postman, change the endpoint to **https://graph.microsoft.com/v1.0/me/events**
+    1. In Postman, change the endpoint to `https://graph.microsoft.com/v1.0/me/events`
     1. Select the **Params** button to open the querystring parameter builder.
     1. Add the following parameters:
         * **$select**: subject,start,end
@@ -171,8 +171,8 @@ In this exercise you will create a new ASP.NET MVC web application. After creati
 1. In Visual Studio, select **File > New > Project**.
 1. In the **New Project** dialog, do the following:
     1. Select **Templates > Visual C# > Web**.
-    1. Select **ASP.NET Web Application (.NET Framework)**.
-    1. Enter **MSGraphCalendarViewer** for the Name of the project.
+    1. Select `ASP.NET Web Application (.NET Framework)`.
+    1. Enter `MSGraphCalendarViewer` for the Name of the project.
 
         ![Visual Studio 2017 create new project dialog](./Images/vs-newproj-01.png)
 

@@ -1,4 +1,4 @@
-﻿using Owin;
+using Owin;
 using Microsoft.Owin;
 
 [assembly: OwinStartup(typeof(MSGraphCalendarViewer.Startup))]

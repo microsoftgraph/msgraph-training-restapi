@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2018
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSGraphCalendarViewer", "MSGraphCalendarViewer\MSGraphCalendarViewer.csproj", "{B5AE18CF-5534-4081-9582-C652AAC3B892}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSGraphCalendarViewer", "MSGraphCalendarViewer\MSGraphCalendarViewer.csproj", "{0133341B-C403-47F8-8D6E-9CAF30973AFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B5AE18CF-5534-4081-9582-C652AAC3B892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5AE18CF-5534-4081-9582-C652AAC3B892}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5AE18CF-5534-4081-9582-C652AAC3B892}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5AE18CF-5534-4081-9582-C652AAC3B892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0133341B-C403-47F8-8D6E-9CAF30973AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0133341B-C403-47F8-8D6E-9CAF30973AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0133341B-C403-47F8-8D6E-9CAF30973AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0133341B-C403-47F8-8D6E-9CAF30973AFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {37565C95-A85E-4661-989C-7CAC37C4E287}
+		SolutionGuid = {F4B9E8BA-9D0B-4B5D-A759-E8CC5EBFDB41}
 	EndGlobalSection
 EndGlobal
