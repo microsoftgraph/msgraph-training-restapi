@@ -20,7 +20,7 @@ In this lab you will leverage the Microsoft Graph REST API to create an ASP.NET 
 This module has been recorded and is available in the Office Development YouTube channel: [Build apps with the Microsoft Graph REST API](https://youtu.be/GF4JSTeR6VA)
 
 > **Note:**
-The video tutorial hasn't been updated to reflect the new Azure AD App registration experience and the use of `Microsoft.Identity 2.7.1` libraries.
+The video tutorial hasn't been updated to reflect the new Azure AD App registration experience and the use of the updated `Microsoft.Identity 2.7.1` library.
 
 ## Contributors
 
