@@ -59,7 +59,7 @@ In this demo you will create a new ASP.NET MVC web application. After creating i
     1. In the **Package Manager Console** tool window, run the following commands to install the necessary packages for MSAL & the OWIN middleware:
 
         ```powershell
-        Install-Package Microsoft.Identity.Client -Version 1.1.4-preview0002
+        Install-Package Microsoft.Identity.Client -Version 2.7.1
         Install-Package Microsoft.IdentityModel.Tokens
         Install-Package Microsoft.Owin
         Install-Package Microsoft.Owin.Host.SystemWeb
