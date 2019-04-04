@@ -31,15 +31,12 @@ In this demo you will create a new ASP.NET MVC web application. After creating i
 
 1. Update the Azure AD application with the project's SSL URL:
 
-    1. Open a browser and navigate to the **App Registry Portal**: **apps.dev.microsoft.com** and login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
+    1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **Work or School Account**.
     1. Select the application you previously created: **WebO365CalendarEvents**.
-    1. Scroll down to the **Platforms** section.
-    1. Within the **Web** platform, select **Add URL**.
-    1. Enter the SSL URL from the ASP.NET MVC project you just created into the new input box.
+    1. Select **Authentication** under **Manage**. Locate the **Redirect URIs** section
+    1. Select the drop-down **TYPE** as **Web**, and enter enter the SSL URL from the ASP.NET MVC project you just created into the **REDIRECT URI** box. Choose **Save**.
 
-        ![Screenshot of the web app platform with the ASP.NET MVC application's SSL URL added to the Redirect URLs.](../../Images/arp-update-app-01.png)
-
-    1. Scroll to the bottom of the page and select **Save**.
+        ![Screenshot of the web app platform with the ASP.NET MVC application's SSL URL added to the Redirect URIs.](../../Images/arp-update-app-01.png)
 
 1. Update the projects application settings:
 

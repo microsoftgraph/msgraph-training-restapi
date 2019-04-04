@@ -2,44 +2,48 @@
 
 In this demo, you will create a new Azure AD native application using the App Registry Portal (ARP).
 
-1. Open a browser and navigate to the **App Registry Portal**: **apps.dev.microsoft.com** and login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
-1. Select **Add an app** at the top of the page.
-1. On the **Register your application** page, set the **Application Name** to **WebO365CalendarEvents** and select **Create**.
+1. Visit the [Azure Active Directory admin center](https://aad.portal.azure.com) and login using a **Work or School Account**.
 
-    ![Screenshot of creating a new app in the App Registration Portal website](../../Images/arp-create-app-01.png)
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. On the **WebO365CalendarEvents Registration** page, under the **Properties** section, copy the **Application Id** Guid as you will need it later.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-    ![Screenshot of newly created application's ID](../../Images/arp-create-app-02.png)
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-1. Scroll down to the **Application Secrets** section
+    - Set a preferred **Name** e.g. `WebO365CalendarEvents`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.
+    - Under **Redirect URI**, set the first drop-down to Web and set the value to the `https://localhost:1234`.
+    > You will eventually have to come back to add a new URL to this when we know the SSL of the ASP.NET application that you will build in an exercise later in this lab.
 
-    1. Select **Generate New Password**.
-    1. In the **New password generated**, copy the contents of the box as you will need it later. *This password is never shown again, so make sure you copy it now.*
+    ![A screenshot of the Register an application page](../../Images/aad-register-an-app.PNG)
 
-    ![Screenshot of newly created application's password](../../Images/arp-create-app-03.png)
+1. Choose **Register**. On the **WebO365CalendarEvents** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
 
-1. Scroll down to the **Platforms** section.
+    ![A screenshot of Application Id](../../Images/aad-application-id.PNG)
 
-    1. Select **Add Platform**.
-    1. In the **Add Platform** dialog, select **Web**.
+1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
 
-        ![Screenshot creating a platform for the app](../../Images/arp-create-app-04.png)
+    ![A screenshot of Implicit grant](../../Images/aad-implicit-grant.png)
 
-    1. In the **Web** platform box added by the previous dialog's selection, enter the URL **https://localhost:1234** for the **Redirect URLs**.
+1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
 
-        ![Screenshot of the newly added Web platform for the application](../../Images/arp-create-app-05.png)
+    ![A screenshot of the Add a client secret dialog](../../Images/aad-new-client-secret.png)
 
-        > You will eventually have to come back to add a new URL to this when we know the SSL of the ASP.NET application that you will build in an exercise later in this lab.
+1. Copy the client secret value before you leave this page. You will need it in the next step.
 
-1. In the **Microsoft Graph Permissions** section, select **Add** next to the **Delegated Permissions** subsection.
+    > **IMPORTANT**:
+    > This client secret is never shown again, so make sure you copy it now.
 
-    ![Screenshot of the Add button for adding a delegated permission](../../Images/arp-add-permission-01.png)
+    ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
 
-    In the **Select Permission** dialog, locate and select the permission **Calendars.Read** and select **OK**:
+1. From the **Manage** page, select **API permissions** > **Add a permission**.
 
-      ![Screenshot of adding the Calendars.Read permission](../../Images/arp-add-permission-02.png)
+    ![A screenshot of Select API Permissions](../../Images/aad-api-permissions.PNG)
 
-      ![Screenshot of the newly added Calendars.Read permission](../../Images/arp-add-permission-03.png)
+1. Choose **Microsoft API** > **Microsoft Graph**.
 
-1. Scroll to the bottom of the page and select **Save**.
+    ![A screenshot of Request API permissions](../../Images/aad-request-api-permissions.PNG)
+
+1. Choose **Delegated permissions**. In the search box, type **Calendars.Read** and select the first option from the list. Select **Add permissions**.
+
+    ![A screenshot of Application permissions](../../Images/aad-delegated-permissions.PNG)
