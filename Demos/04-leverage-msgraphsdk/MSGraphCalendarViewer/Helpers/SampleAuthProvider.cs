@@ -46,7 +46,8 @@ namespace MSGraphCalendarViewer.Helpers
 
       try
       {
-        AuthenticationResult result = await cca.AcquireTokenSilentAsync(scopes.Split(new char[] { ' ' }), cca.Users.First());
+        var accounts = await cca.GetAccountsAsync();
+        AuthenticationResult result = await cca.AcquireTokenSilentAsync(scopes.Split(new char[] { ' ' }), accounts.First());
         return result.AccessToken;
       }
 
