@@ -4,10 +4,10 @@ This folder contains demos for the Microsoft Graph module.
 
 ## Demos
 
-* [Create an Azure AD web application with the App Registration Portal](./Demos/01-arp-app)
-* [Working with the Microsoft Graph REST API in Postman](./Demos/02-create-app)
-* [Create & Configure an ASP.NET MVC Web Application & Configure it for MSAL](./Demos/03-create-aspnet-mvcapp)
-* [Update the ASP.NET MVC Application to Leverage the Microsoft Graph REST API](./Demos/04-leverage-msgraphsdk)
+* [Create an Azure AD web application with the App Registration Portal](./01-arp-app)
+* [Working with the Microsoft Graph REST API in Postman](./02-create-app)
+* [Create & Configure an ASP.NET MVC Web Application & Configure it for MSAL](./03-create-aspnet-mvcapp)
+* [Update the ASP.NET MVC Application to Leverage the Microsoft Graph REST API](./04-leverage-msgraphsdk)
 
 ## Running demonstrations
 

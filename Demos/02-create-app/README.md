@@ -95,4 +95,4 @@ Use the access token to to get first 20 calendar events from your Office 365 cal
         * **$skip**: 0
     1. Select **Send** to execute the request
 
-      ![Screenshot of Postman request and response from the Microsoft Graph REST API](../../Images/postman-graph-02.png)
+      ![Screenshot of Postman request and response from the Microsoft Graph REST API](../../Images/postman-graph-03.png)
