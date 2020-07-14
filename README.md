@@ -1,4 +1,10 @@
-# Microsoft Graph Training Module - Build apps with the Microsoft Graph REST API
+# [ARCHIVED] Microsoft Graph Training Module - Build apps with the Microsoft Graph REST API
+
+## IMPORTANT
+
+**This project is being archived. As part of the archival process, we're closing all open issues and pull requests.**
+
+**You can continue to use this sample "as-is", but it won't be maintained moving forward. We apologize for any inconvenience.**
 
 This module will introduce you to working with the Microsoft Graph REST API to access data in Office 365.
 
